@@ -11,10 +11,15 @@ Therefore, this project prioritises Recall (Sensitivity) over Accuracy to minimi
 The project structure was designed to systematically address the challenges of mixed data types and class imbalance:
 
 Advanced Preprocessing: Implementing a specialized encoding strategy to preserve feature integrity.
+
 Ordinality: Using OrdinalEncoder with manual ranking (e.g., Health ratings) to preserve the intrinsic logical order of features.
+
 Nominality: Using OneHotEncoder(drop='first') to prevent the Dummy Variable Trap (multicollinearity) for unordered features (like Race).
+
 Leakage Prevention: Strictly separating training and testing data during Scaling and Transformation parameters (StandardScaler) to prevent data leakage.
+
 Handling Imbalance: Utilizing Stratified Splitting and Class Weights ('balanced' or scale_pos_weight) to force models to learn from the sparse minority class.
+
 Hyperparameter Tuning: Employing GridSearchCV to optimize models explicitly for the Recall metric, ensuring the best possible sensitivity.
 
 
